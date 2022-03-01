@@ -17,15 +17,35 @@ end architecture Behavioral;
 2. Listing of VHDL stimulus process from testbench file (`tb_mux_2bit_4to1`) with asserts. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines. Verify at least four random input combinations:
 
 ```vhdl
-    p_stimulus : process
+     p_stimulus : process
     begin
-        -- Report a note at the beginning of stimulus process
-        report "Stimulus process started" severity note;
-
-        -- WRITE YOUR TEST CASES HERE
-
-        -- Report a note at the end of stimulus process
-        report "Stimulus process finished" severity note;
+       	s_d		<= "000";
+        s_c 	<= "101"; 
+        s_b 	<= "110"; 
+        s_a 	<= "111";
+        s_sel 	<= "00";
+        wait for 100 ns;
+        
+        s_d		<= "010";
+        s_c 	<= "111"; 
+        s_b 	<= "010"; 
+        s_a 	<= "101";
+        s_sel 	<= "01";
+        wait for 100 ns;
+        
+        s_d		<= "111";
+        s_c 	<= "001"; 
+        s_b 	<= "010"; 
+        s_a 	<= "000";
+        s_sel	<= "10";
+        wait for 100 ns;
+        
+        s_d		<= "011";
+        s_c 	<= "101"; 
+        s_b 	<= "111"; 
+        s_a 	<= "000";
+        s_sel	<= "11";
+        wait for 100 ns;
         wait;
     end process p_stimulus;
 ```
